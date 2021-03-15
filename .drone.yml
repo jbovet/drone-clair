@@ -24,7 +24,7 @@ steps:
   pull: default
   image: plugins/docker
   settings:
-    repo: jbovet/drone-clair
+    repo: josebovet/drone-clair
     tags:
       - latest
       - ${DRONE_TAG}
