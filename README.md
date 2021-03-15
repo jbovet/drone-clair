@@ -22,3 +22,4 @@ docker run --rm \
   jmccann/drone-clair --url http://clair.company.com --username johndoe \
   --password mysecret --scan_image python:2.7
 ```
+
