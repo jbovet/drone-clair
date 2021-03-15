@@ -4,15 +4,16 @@
 #     go build
 #     docker build --rm=true -t jmccann/drone-clair .
 
-FROM alpine:3.4
+FROM alpine:3.13
 
 RUN apk update && \
   apk add \
     ca-certificates && \
   rm -rf /var/cache/apk/*
 
-ADD https://github.com/optiopay/klar/releases/download/v1.1/klar-1.1-linux-amd64 /usr/local/bin/klar
+ADD https://github.com/optiopay/klar/releases/download/v2.4.0/klar-2.4.0-linux-amd64 /usr/local/bin/klar
 RUN chmod 0755 /usr/local/bin/klar
 
 ADD drone-clair /bin/
+
 ENTRYPOINT ["/bin/drone-clair"]
