@@ -20,4 +20,19 @@ steps:
   environment:
     CGO_ENABLED: 0
 
-...
+- name: publish
+  pull: default
+  image: plugins/docker
+  settings:
+    repo: jbovet/drone-clair
+    tags:
+      - latest
+      - ${DRONE_TAG}
+  environment:
+    DOCKER_PASSWORD:
+      from_secret: docker_password
+    DOCKER_USERNAME:
+      from_secret: docker_username
+  when:
+    event:
+      - tag
